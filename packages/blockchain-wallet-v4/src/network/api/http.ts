@@ -71,7 +71,7 @@ export default ({ apiKey }: { apiKey: string }): HTTPService => {
       .request<T>({
         cancelToken,
         data: encodeData(data, contentType, removeDefaultPostData),
-        headers: mergeRight(getHeaders(contentType, sessionToken, url), headers),
+        headers: mergeRight(getHeaders(contentType, sessionToken, url), headers || {}),
         method,
         url: `${url}${endPoint}`,
         ...options
